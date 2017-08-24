@@ -1,0 +1,33 @@
+4) Run the project and investigate the generated table. Explain the content of each column (especially the DTYPE column) and how it relates to the object model.
+
+The customer table just contain a ID, which will contain an unique id for every customer. this is also the primary-key. It will auto increment the ID value, everytime we insert a new customer.
+
+The DiscountType table contain 4 collums.
+We have the ID which by now is self-explainable.
+DTYPE is a VARCHAR and will contain the name of the type of Discount, so it will be quan or fixed. because i have used @DiscriminatorValue.
+Discount is the % of the Discount you will get.
+QUANTITYFORDISCOUNT is how many quantatiys you should buy before you get discount.
+
+Customer_DiscountType contains the customer id and the discount id.
+This way we will know which discount each customer gets. 
+
+
+5) What we have done so far is using the default Inheritance Strategy which is SINGLE_TABLE. 
+Add a @Inheritance annotation on top of the DiscountType class and select InheritanceType.JOINED for the strategy. 
+Regenerate the tables and explain the purpose/content of each table and each column (especially the DTYPE column) and how they relate to the object model.
+
+Cutsomer: The customer table is the same.
+
+Customer_DiscountType: is still the same.
+
+DiscountType: Now only contain the ID and the DTYPE, before is contained the attributes from Discountquantity and DiscountFixed.
+DTYPE consist of a value that defines the type for the Discount.
+
+We now have 2 more tables.
+one for each type of Discount.
+we have DiscountFixed and DiscountQuantity table.
+They almost contain the same collums. DiscountQuantity contains one more which is QUANTITYFORDISCOUNT.
+
+
+
+
