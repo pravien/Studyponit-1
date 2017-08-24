@@ -1,0 +1,3 @@
+DROP DATABASE jpa;
+CREATE DATABASE jpa;
+
